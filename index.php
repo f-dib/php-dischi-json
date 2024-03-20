@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify</title>
+
     
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- vue 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -18,9 +22,29 @@
     
 
     <div id="app">
-        <div v-for="disc in disclist">
-            <div>
-                {{ disc }}
+        <div class="my_nav p-1">
+            <div class="container-xxl h-100">
+                <div class="d-flex align-items-center h-100">
+                    <div class="my_logo">
+                        <img class="img-fluid" src="./img/logo-spotify.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my_list py-5">
+            <div class="container-xxl h-100">
+                <div class="row">
+                    <div v-for="currentDisc in disclist" class="col-4">
+                        <div class="card bg-primary d-flex flex-column align-items-center p-3 text-white">
+                            <div class="my_album mb-3">
+                                <img class="img-fluid" :src="currentDisc.poster" alt="">
+                            </div>
+                            <h5>{{ currentDisc.title }}</h5>
+                            <div>{{ currentDisc.author }}</div>
+                            <div>{{ currentDisc.year }}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,22 @@
+.my_nav {
+    background-color: #06131f;
+    height: 110px;
+}
+
+.my_logo{
+    width: 60px;
+}
+
+.my_list{
+    height: calc(100vh - 110px);
+    overflow: hidden;
+
+    background-color: #1d2d3c;
+}
+
+.my_album{
+    width: 280px;
+    height: 280px;
+
+    object-fit: cover;
+}
