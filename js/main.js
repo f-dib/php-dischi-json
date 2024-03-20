@@ -4,18 +4,36 @@ createApp({
 
     data(){
         return {
-            disclist: []
+            discList: [],
+            singleDisc: [],
+            showPopup: false
         }
     },
 
     methods: {
+        openPopup(activeindex) {
+            this.showPopup = true;
+            document.body.style.overflow = 'hidden';
 
+
+            
+            axios.get('./server.php').then(res => {
+                this.singleDisc = res.data[activeindex]
+
+            }).catch(err => {
+            console.log(err)
+            })
+        },
+        closePopup() {
+            this.showPopup = false;
+            document.body.style.overflow = 'auto';
+        }
     },
 
     mounted() {
         
         axios.get('./server.php').then(res => {
-            this.disclist = res.data
+            this.discList = res.data
         });
 
     },

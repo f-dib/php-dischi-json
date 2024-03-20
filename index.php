@@ -31,11 +31,11 @@
                 </div>
             </div>
         </div>
-        <div class="my_list py-5">
+        <div class="my_list py-5 position-relative">
             <div class="container-xxl h-100">
                 <div class="row">
-                    <div v-for="currentDisc in disclist" class="col-4">
-                        <div class="card bg-primary d-flex flex-column align-items-center p-3 text-white">
+                    <div v-for="(currentDisc, index) in discList" class="col-4">
+                        <div class="card bg-primary d-flex flex-column align-items-center p-3 text-white" @click="openPopup(index)">
                             <div class="my_album mb-3">
                                 <img class="img-fluid" :src="currentDisc.poster" alt="">
                             </div>
@@ -44,6 +44,16 @@
                             <div>{{ currentDisc.year }}</div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div v-if="showPopup" class="popup d-flex justify-content-center align-items-center fixed-center bg-transparent" @click="closePopup()">
+                <div class="card bg-black d-flex flex-column align-items-center p-5 text-white">
+                    <div class="my_album mb-3">
+                        <img class="img-fluid" :src="singleDisc.poster" alt="">
+                    </div>
+                    <h5>{{ singleDisc.title }}</h5>
+                    <div>{{ singleDisc.author }}</div>
+                    <div>{{ singleDisc.year }}</div>
                 </div>
             </div>
         </div>
