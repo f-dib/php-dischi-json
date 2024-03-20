@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify</title>
 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -31,29 +33,31 @@
                 </div>
             </div>
         </div>
-        <div class="my_list py-5 position-relative">
+        <div class="my_list py-5">
             <div class="container-xxl h-100">
-                <div class="row">
-                    <div v-for="(currentDisc, index) in discList" class="col-4">
-                        <div class="card bg-primary d-flex flex-column align-items-center p-3 text-white" @click="openPopup(index)">
-                            <div class="my_album mb-3">
-                                <img class="img-fluid" :src="currentDisc.poster" alt="">
+                <div class="row px-5">
+                    <div v-for="(currentDisc, index) in discList" class="col-4 mb-4">
+                        <div class="card my_card d-flex flex-column align-items-center text-white" @click="openPopup(index)">
+                            <img class="card-img-top" :src="currentDisc.poster" alt="">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ currentDisc.title }}</h5>
+                                <p class="card-text">{{ currentDisc.author }}</p>
                             </div>
-                            <h5>{{ currentDisc.title }}</h5>
-                            <div>{{ currentDisc.author }}</div>
-                            <div>{{ currentDisc.year }}</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div v-if="showPopup" class="popup d-flex justify-content-center align-items-center fixed-center bg-transparent" @click="closePopup()">
-                <div class="card bg-black d-flex flex-column align-items-center p-5 text-white">
-                    <div class="my_album mb-3">
-                        <img class="img-fluid" :src="singleDisc.poster" alt="">
+            <div v-if="showPopup" class="popup d-flex justify-content-center align-items-center">
+                <div class="card my_bg d-flex flex-column align-items-center p-3 text-white">
+                    <div class="align-self-end mb-3" @click="closePopup()"><i class="fa-solid fa-x"></i></div>
+                    <div class="card my_card d-flex flex-column align-items-center text-white">
+                            <img class="card-img-top" :src="singleDisc.poster" alt="">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ singleDisc.title }}</h5>
+                                <p class="card-text">{{ singleDisc.author }}</p>
+                                <p class="card-text">{{ singleDisc.year }}</p>
+                            </div>
                     </div>
-                    <h5>{{ singleDisc.title }}</h5>
-                    <div>{{ singleDisc.author }}</div>
-                    <div>{{ singleDisc.year }}</div>
                 </div>
             </div>
         </div>

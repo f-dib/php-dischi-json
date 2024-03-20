@@ -13,10 +13,7 @@ createApp({
     methods: {
         openPopup(activeindex) {
             this.showPopup = true;
-            document.body.style.overflow = 'hidden';
-
-
-            
+     
             axios.get('./server.php').then(res => {
                 this.singleDisc = res.data[activeindex]
 
@@ -26,7 +23,6 @@ createApp({
         },
         closePopup() {
             this.showPopup = false;
-            document.body.style.overflow = 'auto';
         }
     },
 
