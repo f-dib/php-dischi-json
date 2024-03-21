@@ -47,6 +47,11 @@
     background-color: #112030;
 }
 
+.my_card2{
+    height: 80%;
+    background-color: #112030;
+}
+
 .popup{
     position: fixed;
     top: 50%;
@@ -57,5 +62,10 @@
 
 .my_bg{
     width: 60vw;
+    height: 80vh;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.my_img{
+    width: 300px;
 }

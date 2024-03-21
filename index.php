@@ -48,10 +48,10 @@
                 </div>
             </div>
             <div v-if="showPopup" class="popup d-flex justify-content-center align-items-center">
-                <div class="card my_bg d-flex flex-column align-items-center p-3 text-white">
+                <div class="my_bg d-flex flex-column align-items-center p-3 text-white">
                     <div class="align-self-end mb-3" @click="closePopup()"><i class="fa-solid fa-x"></i></div>
-                    <div class="card my_card d-flex flex-column align-items-center text-white">
-                            <img class="card-img-top" :src="singleDisc.poster" alt="">
+                    <div class="card my_card2 d-flex flex-column align-items-center text-white">
+                            <img class="card-img-top my_img" :src="singleDisc.poster" alt="">
                             <div class="card-body text-center">
                                 <h5 class="card-title">{{ singleDisc.title }}</h5>
                                 <p class="card-text">{{ singleDisc.author }}</p>
